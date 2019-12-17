@@ -1,3 +1,94 @@
 #index:
 #    path: /
 #    controller: App\Controller\DefaultController::index
+
+hello:
+  path: /hello
+  controller: App\Controller\HelloController::helloAction
+
+#numberAction:
+#  path: /numberAction/{number}
+#  controller: App\Controller\HelloController::numberAction
+
+OnlyNumberAction:
+  path: /onlyNumberAction/{number}
+  controller: App\Controller\HelloController::onlyNumberAction
+  requirements:
+    number: '\d+'
+
+putAction:
+  path: /putAction
+  controller: App\Controller\HelloController::putAction
+  methods: PUT
+
+user:
+  path: /user/{lastName}/{firstName}
+  controller: App\Controller\UserController::displayUser
+  requirements:
+    lastName: '\w+'
+    firstName: '\w+'
+
+userList:
+  path: /user/list/
+  controller: App\Controller\UserController::displayUserList
+
+airports:
+  path: /airport
+  controller: App\Controller\AirportController::displayAirports
+  methods: GET
+
+airport:
+  path: /airport/{id}
+  controller: App\Controller\AirportController::getAirport
+  requirements:
+    number: '\d+'
+  methods: GET
+
+airportDelete:
+  path: /airport/{id}
+  controller: App\Controller\AirportController::getAirport
+  requirements:
+    number: '\d+'
+  methods: DELETE
+
+flights:
+  path: /flight
+  controller: App\Controller\FlightController::displayFlights
+  methods: GET
+
+flight:
+  path: /flight/{id}
+  controller: App\Controller\FlightController::getFlight
+  requirements:
+    number: '\d+'
+  methods: GET
+
+flightDelete:
+  path: /flight/{id}
+  controller: App\Controller\FlightController::getFlight
+  requirements:
+    number: '\d+'
+  methods: DELETE
+
+pilots:
+  path: /pilot
+  controller: App\Controller\PilotController::displayPilots
+  methods: GET
+
+pilot:
+  path: /pilot/{id}
+  controller: App\Controller\PilotController::getPilot
+  requirements:
+    number: '\d+'
+  methods: GET
+
+pilotDelete:
+  path: /pilot/{id}
+  controller: App\Controller\PilotController::getPilot
+  requirements:
+    number: '\d+'
+  methods: DELETE
+
+plane:
+  resource: './routes/plane.yaml'
+  prefix: /plane
